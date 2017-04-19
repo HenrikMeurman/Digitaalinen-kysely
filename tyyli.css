@@ -1,0 +1,30 @@
+
+header, footer {
+    padding: 1em;
+    color: black;
+    clear: left;
+    text-align: center;
+}
+
+
+.kysely {
+	background-color:white;
+	align-content:;
+	margin-left:500px;
+	margin-right:500px;
+
+	border: 1px solid green;
+	text-align:left;
+    padding: 1em;
+    overflow: hidden;
+}
+
+body { background-color:#9FE6FC;
+}
+
+h1 {
+	font-size:15px;
+font-family:bold;	
+	
+}
+
