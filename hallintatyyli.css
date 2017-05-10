@@ -1,0 +1,114 @@
+
+footer {
+    padding: 1em;
+    color: black;
+    clear: left;
+    text-align: center;
+}
+
+.sivu {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color:white;
+	margin-left:500px;
+	margin-right:500px;
+	text-align:left;
+    padding:2em;
+    overflow: hidden;    
+}
+
+.ylälohko {
+
+}
+
+.vasentaulu {
+    float:left;
+    font-family: helvetica;
+    font-size:13px;
+}
+
+.muokkaa {
+    width: 10px;
+}
+
+.poikkiviiva {
+    display:inline-block;
+    text-align: center;
+    width:50px;
+    position: absolute;
+    top: 247px;
+}
+
+.oikeataulu {
+    float:right;
+    text-align: center;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+
+.alalohko {
+    margin-left:500px;
+	margin-right:500px;
+    padding-right:2em;
+    background-color:#006887;
+    display:block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+body { background-color:#e9ebee;
+}
+
+h1 {
+	font-size:30px;
+    font-family:bold;
+    color:#006887;
+    font-family: helvetica;
+    font-weight: bold;
+    float:right;    
+}
+
+h2 {
+   	font-size:30px;
+    font-family:bold;
+    color:#006887;
+    font-family: helvetica;
+    font-weight: bold;
+    float: left;
+}
+
+h3 {
+    font-size:22px;
+    text-align:right;
+    font-family:bold;
+    color:white;
+    font-family: helvetica;
+    font-weight: bold;
+    word-spacing:-2px;
+    line-height: 0px;
+}
+h4 {
+    font-size:10px;
+    text-align:right;
+    color:white;
+    font-family: helvetica;
+    font-weight: bold;
+    word-spacing:0px;
+    line-height: 0px;
+}
+p5 {
+    font-size:22px;
+    font-family: helvetica;
+    font-weight: bold;
+}
+
+input[type=number], select {
+    width: 10%;
+    padding: 2px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+

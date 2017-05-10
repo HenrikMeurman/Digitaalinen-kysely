@@ -1,0 +1,48 @@
+.valikko {
+    text-align: center;
+    font-size: 20px;
+    font-family: "Lucida Console";
+    font-weight: bold;
+}
+
+.sivu {
+    border: 1px solid #006887;
+	background-color:white;
+	margin-left:700px;
+	margin-right:700px;
+	align-content: right;
+    padding:2em;
+    overflow: hidden;
+}
+
+.kirjautuminen {
+    align-content: right;
+    line-height: 25px;
+}
+
+.nappi {
+    text-align: right;
+    padding-right: 131px;
+    line-height: 25px;
+}
+
+footer {
+    padding: 1em;
+    color: black;
+    clear: left;
+    text-align: center;
+}
+
+body { background-color:#9FE6FC;
+}
+
+input[type=number], select {
+    width: 10%;
+    padding: 2px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+

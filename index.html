@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="tyyli.css">
+ <meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-2.1.4.js"
+integrity="sha256-siFczlgw4jULnUICcdm9gjQPZkw/YPDqhQ9+nAOScE4=" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+
+<body>
+    
+ <div data-role="page" id="mainpage">
+    
+<div class="container">
+
+<div class="kysely">
+  <h2>OPISKELIJAKYSELYT</h2>
+    <br> <br> <br> <br><br><br>
+  <p5>Kysely Helgan tunnettuudesta</p5>
+  <br><br>
+    
+<form action="">  
+<h1> <div id="kyselyID1"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID2"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID3"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID4"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID5"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID6"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID7"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID8"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID9"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID10"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+</form> 
+    
+<form action="">  
+<h1> <div id="kyselyID11"></div> </h1>
+<input type="text" name="vastaus" id="vastaus" size="50">
+
+<br><br>
+
+<button onclick="tallennaVastaukset()">Lähetä</button>
+    
+</form> 
+
+
+  
+<br><br><br><br><br><br><br><br><br>
+  
+  </div>
+
+<div class="alalohko">
+<br>
+    <h3>OPISKELIJAKYSELYT</h3>
+    <h4>------ Mielenkiintoisia kyselyitä opiskelusta ------</h4>
+<br>
+</div>
+    
+    
+<script>
+
+     $(document).on("pagecreate", "#mainpage", function() {
+            haeKysymys()
+        });
+        
+       function haeKysymys() {
+            $.ajax({
+                url: "http://proto353.haaga-helia.fi:8080/kysely/rest/",
+                dataType: "json",
+                timeout: 5000
+            })
+            .done(function(data) {
+                 $("#kyselyID1").text(data[1].kysymys);
+                 $("#kyselyID2").text(data[2].kysymys);
+                 $("#kyselyID3").text(data[3].kysymys);
+                 $("#kyselyID4").text(data[4].kysymys);
+                 $("#kyselyID5").text(data[5].kysymys);
+                 $("#kyselyID6").text(data[6].kysymys);
+                 $("#kyselyID7").text(data[7].kysymys);
+                 $("#kyselyID8").text(data[8].kysymys);
+                 $("#kyselyID9").text(data[9].kysymys);
+                 $("#kyselyID10").text(data[10].kysymys);
+                 $("#kyselyID11").text(data[11].kysymys);
+                 $("#kyselyID12").text(data[12].kysymys);
+                 $("#kyselyID13").text(data[13].kysymys);
+                 $("#kyselyID14").text(data[14].kysymys);
+                 $("#kyselyID15").text(data[15].kysymys);
+                 $("#kyselyID16").text(data[16].kysymys);
+            }
+                 )
+        }
+    
+      function tallennaVastaukset() {
+          var uusiVastaus = $("#vastaus").val();
+          var jsonData = JSON.stringify({"vastaus": uusiVastaus});
+          $('#target').html('sending..' + $("#vastaus").val());
+          $.ajax({
+           url: "http://proto353.haaga-helia.fi:8080/kysely/rest/v/",
+           type: "POST",
+           data: jsonData,
+           dataType: "json",
+           contentType: "application/json; charset=utf-8",
+           success: function (data) {
+                $('#target').html('Vastaus "' + $('#vastaus').val() + '" lisätty.');
+            }
+       });
+      }
+    
+</script>
+    
+<footer>Copyright Hege!</footer>
+
+</div>
+
+</body>
+</html>

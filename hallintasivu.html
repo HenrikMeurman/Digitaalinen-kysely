@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="hallintatyyli.css">
+ <meta charset="UTF-8">
+</head>
+
+<body>
+
+<br><br>
+
+<div class="sivu">
+    
+<div class="ylälohko">
+    <h1>HALLINTASIVU</h1>
+    <h2>OPISKELIJAKYSELYT</h2>
+</div>
+<br><br>
+    <br><br><br><br><br><br>
+    <p5>KYSELYT</p5><hr>
+
+<br>
+    
+    
+<div class=vasentaulu>
+    <table style="width:400px">
+  <tr>
+    <td>Kysely Helgan tunnettuudesta</td>
+    <td><a target="_blank" href="http://myy.haaga-helia.fi/~a1103362">Linkki</a></td>
+    <td class="muokkaa"><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+  </tr>
+  <tr bgcolor="#bfd9e1">
+    <td>Kysely Helgan tunnettuudesta</td>
+    <td><a target="_blank" href="http://myy.haaga-helia.fi/~a1103362">Linkki</a></td>
+    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+  </tr>
+  <tr>
+    <td>Kysely Helgan tunnettuudesta</td>
+    <td><a target="_blank" href="http://myy.haaga-helia.fi/~a1103362">Linkki</a></td>
+    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+  </tr>
+  <tr bgcolor="#bfd9e1">
+    <td>Kysely Helgan tunnettuudesta</td>
+    <td><a target="_blank" href="http://myy.haaga-helia.fi/~a1103362">Linkki</a></td>
+    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+  </tr>
+    <tr>
+    <td>Kysely Helgan tunnettuudesta</td>
+    <td><a target="_blank" href="http://myy.haaga-helia.fi/~a1103362">Linkki</a></td>
+    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+  </tr>
+  <tr bgcolor="#bfd9e1">
+    <td>Kysely Helgan tunnettuudesta</td>
+    <td><a target="_blank" href="http://myy.haaga-helia.fi/~a1103362">Linkki</a></td>
+    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+  </tr>
+  <tr>
+    <td>Kysely Helgan tunnettuudesta</td>
+    <td><a target="_blank" href="http://myy.haaga-helia.fi/~a1103362">Linkki</a></td>
+    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+  </tr>
+  <tr bgcolor="#bfd9e1">
+    <td>Kysely Helgan tunnettuudesta</td>
+    <td><a target="_blank" href="http://myy.haaga-helia.fi/~a1103362">Linkki</a></td>
+    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+  </tr>
+    </table>
+</div>
+
+<div class=poikkiviiva>
+    <hr width="1" size="370">
+</div>
+    
+<div class=oikeataulu>
+    <br><br><br><br>
+    <table style="width:400px">
+  <tr>
+    <td><a href="http://myy.haaga-helia.fi/~a1103362/kysely.html">Luo kysely</a></td> 
+  </tr>
+  <tr>
+    <td></td>          
+  </tr>
+  <tr>
+    <td><a href="url">Raportit</a></td> 
+  </tr>
+    </table>
+</div>
+    
+    <br><br><br><br><br><br><br>
+    
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<div class="alalohko">
+<br>
+    <h3>OPISKELIJAKYSELYT</h3>
+    <h4>------ Mielenkiintoisia kyselyitä opiskelusta ------</h4>
+<br>
+</div>
+
+
+<footer>Copyright Hege & Tarmo</footer>
+
+<script>
+
+   $(document).on("pagecreate", "#mainpage", function() {
+            fetchApod()
+        });
+        
+        function fetchApod() {
+            $.ajax({
+                url: "KyselyDB2.txt",
+                dataType: "json"
+            })
+            .done(function(data) {
+                $("#apodimg").attr("src", data.url);
+                $("#title").text(data.title);
+                $("#explanation").text(data.explanation);
+                $("#hdimg").attr("src", data.hdurl);
+                
+                $("#y0008").text(data.y0008)
+                
+                
+            })
+    
+</script>
+
+</body>
+</html>
