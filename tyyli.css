@@ -19,8 +19,8 @@ header, footer {
 .kysely {
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color:white;
-	margin-left:500px;
-	margin-right:500px;
+	margin-left:20%;
+	margin-right:20%;
 	text-align:left;
     padding:2em;
     overflow: hidden; 
@@ -41,8 +41,8 @@ h1 {
 }
 
 .alalohko {
-    margin-left:500px;
-	margin-right:500px;
+    margin-left:20%;
+	margin-right:20%;
     padding-right:2em;
     background-color:#006887;
     display:block;
@@ -92,5 +92,29 @@ input[type=number], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+button{margin-top:5px;
+    margin-bottom:15px;
+    margin-left:5px;
+    padding: 15px 25px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #006887;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px #999;
+    font-family: 'Reem Kufi', sans-serif;
+}
+
+button:hover {background-color: #10329a}
+
+button:active {
+    background-color: #10329a;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
 }
 
