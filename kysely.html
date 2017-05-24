@@ -15,11 +15,96 @@
   ga('send', 'pageview');
 
 </script>
-
+<script src="https://code.jquery.com/jquery-2.1.4.js"
+integrity="sha256-siFczlgw4jULnUICcdm9gjQPZkw/YPDqhQ9+nAOScE4=" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
 
+<br>
+<button onclick="add()">Lisää</button>
+<div id="target"></div>
+<button onclick="haeKysymykset()">Hae Kyssärit</button>
+
+<script>
+    
+
+    
+function add(){
+       var uusiKysymys = $("#kysymys").val();
+       var jsonData = JSON.stringify({"kysymys": uusiKysymys});
+        $('#target').html('sending..' + $("#kysymys").val());
+       $.ajax({
+           url: "http://proto353.haaga-helia.fi:8080/kysely/rest/k/",
+           type: "POST",
+           data: jsonData,
+           dataType: "json",
+           contentType: "application/json; charset=utf-8",
+           success: function (data) {
+                $('#target').html('Kysymys "' + $('#kysymys').val() + '" lisätty.');
+            }
+       });
+}
+
+$(document).on("pagecreate", function() {
+            haeKysymykset()
+        });  
+    
+function haeKysymykset() {  
+            var dataa = "http://proto353.haaga-helia.fi:8080/kysely/rest/k/";
+			$.ajax({
+				url: dataa,
+                type: "GET",
+				dataType: "json",
+                contentType: "application/json; charset=utf-8",
+  			})
+			.done(function(data){
+                var teksti = "";
+                $.each(data, function(index, loydaVastaus) {
+                        if (loydaVastaus.id == '1') {
+                $("#kysymys1").text(loydaVastaus.kysymys);
+    }
+                        if (loydaVastaus.id == '2') {
+               $("#kysymys2").text(loydaVastaus.kysymys);             
+        }
+                       if (loydaVastaus.id == '3') {
+               $("#kysymys3").text(loydaVastaus.kysymys);             
+        }
+                       if (loydaVastaus.id == '4') {
+               $("#kysymys4").text(loydaVastaus.kysymys);             
+        }
+                       if (loydaVastaus.id == '5') {
+               $("#kysymys5").text(loydaVastaus.kysymys);             
+        }
+                       if (loydaVastaus.id == '6') {
+               $("#kysymys6").text(loydaVastaus.kysymys);             
+        }
+                       if (loydaVastaus.id == '7') {
+               $("#kysymys7").text(loydaVastaus.kysymys);             
+        }
+                       if (loydaVastaus.id == '8') {
+               $("#kysymys8").text(loydaVastaus.kysymys);             
+        }
+                        if (loydaVastaus.id == '1') {
+               $("#kyOtsikko").val(loydaVastaus.kysymys);
+        }
+                        if (loydaVastaus.id == '2') {
+               $("#kyKuvaus").val(loydaVastaus.kysymys);
+        }
+        
+        })
+                
+			})
+			.fail(function() {
+			})	
+			.complete(function() {
+			})			
+}
+    
+    
+</script>
+    
 <br><br>
 
 <div class="sivu">
@@ -38,36 +123,36 @@
 <div class=oikeataulu>
     <table style="width:400px">
   <tr>
-    <td>Ikä:</td>
-    <td class="muokkaa"><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+    <td><p id="kysymys1"></p></td>
+      <td class="muokkaa"><button type="submit">Muokkaa</button></td>
   </tr>
   <tr bgcolor="#bfd9e1">
-    <td>Sukupuoli:</td>
-    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+    <td><p id="kysymys2"></p></td>
+    <td><button type="submit">Muokkaa</button></td>
   </tr>
   <tr>
-    <td>Opintovuosi:</td>
-    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+    <td><p id="kysymys3"></p></td>
+    <td><button type="submit">Muokkaa</button></td>
   </tr>
   <tr bgcolor="#bfd9e1">
-    <td>Tiedätkö mikä Helga on?</td>
-    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+    <td><p id="kysymys4"></p></td>
+    <td><button type="submit">Muokkaa</button></td>
   </tr>
     <tr>
-    <td>Kuinka tietoinen olet Helgan palveluista? (1 = ei ollenkaan, 5 = hyvin tietoinen):</td>
-    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+    <td><p id="kysymys5"></p></td>
+    <td><button type="submit">Muokkaa</button></td>
   </tr>
   <tr bgcolor="#bfd9e1">
-    <td>Oletko käyttänyt Helgan palveluita, mitä?</td>
-    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+    <td><p id="kysymys6"></p></td>
+    <td><button type="submit">Muokkaa</button></td>
   </tr>
   <tr>
-    <td>Kuinka tyytyväinen olet Helgan palveluihin? (1 = ei ollenkaan tyytyväinen, 5 = hyvin tyytyväinen):</td>
-    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+    <td><p id="kysymys7"></p></td>
+    <td><button type="submit">Muokkaa</button></td>
   </tr>
   <tr bgcolor="#bfd9e1">
-    <td>Kuinka tutuksi Helga tuli koulun aloittaessa? (1 = ei yhtään tutuksi, 5 = hyvin tutuksi):</td>
-    <td><input type="button" onclick="alert('Työn alla')" value="Muokkaa"></td>
+    <td><p id="kysymys8"></p></td>
+    <td><button type="submit">Muokkaa</button></td>
   </tr>
   <tr>
     <td>
@@ -96,13 +181,13 @@
     <td>
       
     Kyselyn otsikko<br>
-        <input type="text" name="uname" required>
+        <input type="text" name="uname" id="kyOtsikko" required>
             <br><br>
     Kyselyn Kuvaus<br>
-        <input type="text" name="uname" required>
+        <input type="text" name="uname" id="kyKuvaus" required>
             <br><br>
     Kysymys:<br>
-        <input type="text" name="uname" required>
+        <input type="text" name="kysymys" id="kysymys">
             <br><br>
     Vastaustyypit:<br>
         <select name="cars">
@@ -118,7 +203,7 @@
     <br><br><br>
         
     <div class=lkysymys>
-    <button type="submit"></button>
+    <button onclick="add()">Lisää kysymys</button>
     </div>
         
     <div class=pkysymys>
